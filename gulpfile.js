@@ -30,7 +30,12 @@ gulp.task('watch:build', function() {
 gulp.task('less', function(){
   return gulp.src('./less/app.less')
     .pipe(less())
+    .on('error', function handleError(error){
+      console.log(error.toString());
+      this.emit('end');
+    })
     .pipe(gulp.dest('./public/css'));
+    
 });
 
 gulp.task('watch:less', function() {

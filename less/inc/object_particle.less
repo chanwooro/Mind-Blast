@@ -1,0 +1,76 @@
+body{
+    overflow:hidden;
+}
+.triangle{
+    position:absolute;
+    right: 20%;
+    bottom:40%;
+}
+.triangle::after{
+    display: block;
+    filter: blur(5px);
+}
+.circle{
+    position:absolute;
+    left:10%;
+    top:40%;
+    -webkit-animation: xAxis 4s infinite cubic-bezier(1, 0.04, 0.49, 0.93);
+    animation: xAxis 4s infinite cubic-bezier(1, 0.04, 0.49, 0.93);
+}
+
+.circle::after {
+    content: '';
+    display: block;
+    filter: blur(5px);
+    will-change: transform;
+    width: 60px;
+    height: 60px;
+    left:40%;
+    top:40%;
+    border-radius: 50%;
+    background-color: #000;
+    -webkit-animation: yAxis 2.5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation: yAxis 2.5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+}
+@-webkit-keyframes yAxis {
+50% {
+    -webkit-animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+}
+}
+
+@keyframes yAxis {
+50% {
+    -webkit-animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    -webkit-transform: translateY(-100px);
+    transform: translateY(-100px);
+}
+}
+
+@-webkit-keyframes xAxis {
+50% {
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+}
+}
+
+@keyframes xAxis {
+50% {
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    -webkit-transform: translateX(100px);
+    transform: translateX(100px);
+}
+}
+#canvas {
+    position:absolute;
+    display:block;
+    filter: blur(5px);
+     
+    top:110px;
+}

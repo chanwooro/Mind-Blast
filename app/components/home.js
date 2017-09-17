@@ -3,7 +3,7 @@ import React from 'react';
 const Home = React.createClass({
   render: function() {
     return (
-      <div className="home-page">
+      <div className="content_layout">
         <h1>The app has React Router</h1>
         <p>
           While the <a href="https://css-tricks.com/learning-react-router/">CSS-Tricks article</a> for
