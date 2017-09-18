@@ -10,11 +10,20 @@ const MainLayout = React.createClass({
       anime_state: ajs_state
     }; 
   },
+  getStates: function(){
+    return {
+      anime_state: this.state.anime_state,
+      onActive: this.state.onActive
+    }
+  },
   showContents: function(){
     console.log('contents clicked');
     localStorage.setItem( 'anime_state', 'active' );
-    this.state.anime_state = 'active';
-    this.state.onActive = 'reveal';
+    this.setState({
+      anime_state: 'active',
+      onActive: 'reveal'
+    })
+
     console.log(this.state.onActive);
   },
   displayCotentTop: function(){
@@ -27,12 +36,6 @@ const MainLayout = React.createClass({
   },
   render: function() {
 
-    var topClass = {
-      'top-menu': this.state.onActive
-    };
-    var bottomClass = {
-      'bottom-menu': this.state.onActive
-    };
     return (
       <div className="app">
         <canvas id='canvas'></canvas>
@@ -42,9 +45,9 @@ const MainLayout = React.createClass({
           
           <div className={this.displayCotentTop()}>
             <div className="header_wrapper">
-                <div id="logo_name">
-                    <div id="rotator">
-                        <div id="expender">
+                <div id="logo_name" className="sp"> 
+                    <div id="rotator" className="sp">
+                        <div id="expender" className="sp">
                 
                         </div>
                     </div>
@@ -67,16 +70,19 @@ const MainLayout = React.createClass({
                     </div>
                 </div>
                 <ul className="main_menu">
-                  <li><Link to="/" activeClassName="active" onClick={this.showContents}>About</Link></li>
-                  <li><Link to="/users" activeClassName="active">Experience</Link></li>
-                  <li><Link to="/widgets" activeClassName="active">Skills</Link></li>
+                  <li><Link to="/about" activeClassName="active" onClick={this.showContents}>About</Link></li>
+                  <li><Link to="/users" activeClassName="active" onClick={this.showContents}>Experience</Link></li>
+                  <li><Link to="/widgets" activeClassName="active" onClick={this.showContents}>Skills</Link></li>
                 </ul>
               
             </div>
             
           </div>
-          <main>
-            {this.props.children}
+          <main className="inner_contents">
+            {this.props.children && React.cloneElement(this.props.children, {
+              getStates: this.getStates,
+              showContents: this.showContents
+              })}
           </main>
           <div className={this.displayCotentBottom()}>
               {this.state.anime_state === 'inactive' ? (<Anime opacity={[0, 1]} translateY={'1em'} delay={1800} autoplay={true} duration={1000} >

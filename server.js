@@ -7,7 +7,7 @@
 import express from 'express';
 import path from 'path';
 const app = express();
-
+require('./route/route')(app, path);
 
 /**
  * Anything in public can be accessed statically without
@@ -24,10 +24,10 @@ app.use(express.static(path.join(__dirname, 'public'), {
  * Always serve the same HTML file for all requests
  */
 
-app.get('*', function(req, res, next) {
+/*app.get('*', function(req, res, next) {
   console.log('Request: [GET]', req.originalUrl)
   res.sendFile(path.resolve(__dirname, 'index.html'));
-});
+});*/
 
 
 /**

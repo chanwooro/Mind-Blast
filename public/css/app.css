@@ -365,17 +365,12 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  background: linear-gradient(180deg, #57daf6 15%, #4bceff 50%, #2a8eb3 93%);
 }
 #root {
-  background: url("../images/background.png");
   height: 100%;
 }
 .app {
   height: 100%;
-}
-.content_layout {
-  display: none;
 }
 .footer {
   text-align: center;
@@ -383,11 +378,10 @@ body {
   bottom: 0;
   height: 50%;
   width: 100%;
+  color: #fff;
 }
 div {
-  margin: 10px;
   font-family: 'Roboto Slab', serif;
-  color: #fff;
 }
 ul {
   margin: 0;
@@ -440,6 +434,9 @@ a {
   position: fixed;
   height: 50%;
   width: 100%;
+}
+.sp {
+  margin: 10px;
 }
 #rotator {
   position: relative;
@@ -534,7 +531,7 @@ span.first_margin {
   transition: all 0.6s ease-in 1s;
 }
 .second_margin {
-  margin-left: 16px;
+  margin-left: 20px;
 }
 .header_wrapper {
   opacity: 0;
@@ -672,5 +669,21 @@ body {
   position: absolute;
   display: block;
   filter: blur(5px);
+  z-index: -1;
   top: 110px;
+}
+.inner_contents {
+  width: 100%;
+  height: auto;
+  padding-top: 110px;
+}
+.content_layout {
+  width: 60%;
+  margin: 0 auto;
+  min-width: 1100px;
+}
+.personal_image {
+  background: url("../images/cro.png");
+  background-repeat: no-repeat;
+  background-size: 80px 60px;
 }

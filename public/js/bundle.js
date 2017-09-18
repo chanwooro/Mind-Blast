@@ -19789,31 +19789,36 @@
 	
 	var _home2 = _interopRequireDefault(_home);
 	
-	var _userList = __webpack_require__(221);
+	var _about = __webpack_require__(221);
+	
+	var _about2 = _interopRequireDefault(_about);
+	
+	var _userList = __webpack_require__(222);
 	
 	var _userList2 = _interopRequireDefault(_userList);
 	
-	var _userProfile = __webpack_require__(222);
+	var _userProfile = __webpack_require__(223);
 	
 	var _userProfile2 = _interopRequireDefault(_userProfile);
 	
-	var _widgetList = __webpack_require__(223);
+	var _widgetList = __webpack_require__(224);
 	
 	var _widgetList2 = _interopRequireDefault(_widgetList);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// Pages
-	
-	
-	// Layouts
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
-	  { history: _reactRouter.browserHistory },
+	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { component: _mainLayout2.default },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default }),
+	    _react2.default.createElement(
+	      _reactRouter.Route,
+	      { path: 'about' },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _about2.default })
+	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'users' },
@@ -19835,6 +19840,11 @@
 	    )
 	  )
 	);
+	
+	// Pages
+	
+	
+	// Layouts
 
 /***/ }),
 /* 160 */
@@ -24948,11 +24958,20 @@
 	    };
 	  },
 	
+	  getStates: function getStates() {
+	    return {
+	      anime_state: this.state.anime_state,
+	      onActive: this.state.onActive
+	    };
+	  },
 	  showContents: function showContents() {
 	    console.log('contents clicked');
 	    localStorage.setItem('anime_state', 'active');
-	    this.state.anime_state = 'active';
-	    this.state.onActive = 'reveal';
+	    this.setState({
+	      anime_state: 'active',
+	      onActive: 'reveal'
+	    });
+	
 	    console.log(this.state.onActive);
 	  },
 	  displayCotentTop: function displayCotentTop() {
@@ -24965,12 +24984,6 @@
 	  },
 	  render: function render() {
 	
-	    var topClass = {
-	      'top-menu': this.state.onActive
-	    };
-	    var bottomClass = {
-	      'bottom-menu': this.state.onActive
-	    };
 	    return _react2.default.createElement(
 	      'div',
 	      { className: 'app' },
@@ -24988,11 +25001,11 @@
 	            { className: 'header_wrapper' },
 	            _react2.default.createElement(
 	              'div',
-	              { id: 'logo_name' },
+	              { id: 'logo_name', className: 'sp' },
 	              _react2.default.createElement(
 	                'div',
-	                { id: 'rotator' },
-	                _react2.default.createElement('div', { id: 'expender' })
+	                { id: 'rotator', className: 'sp' },
+	                _react2.default.createElement('div', { id: 'expender', className: 'sp' })
 	              ),
 	              _react2.default.createElement(
 	                'div',
@@ -25037,7 +25050,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/', activeClassName: 'active', onClick: this.showContents },
+	                  { to: '/about', activeClassName: 'active', onClick: this.showContents },
 	                  'About'
 	                )
 	              ),
@@ -25046,7 +25059,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/users', activeClassName: 'active' },
+	                  { to: '/users', activeClassName: 'active', onClick: this.showContents },
 	                  'Experience'
 	                )
 	              ),
@@ -25055,7 +25068,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/widgets', activeClassName: 'active' },
+	                  { to: '/widgets', activeClassName: 'active', onClick: this.showContents },
 	                  'Skills'
 	                )
 	              )
@@ -25064,8 +25077,11 @@
 	        ),
 	        _react2.default.createElement(
 	          'main',
-	          null,
-	          this.props.children
+	          { className: 'inner_contents' },
+	          this.props.children && _react2.default.cloneElement(this.props.children, {
+	            getStates: this.getStates,
+	            showContents: this.showContents
+	          })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -25173,43 +25189,7 @@
 	  displayName: "Home",
 	
 	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      { className: "content_layout" },
-	      _react2.default.createElement(
-	        "h1",
-	        null,
-	        "The app has React Router"
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "While the ",
-	        _react2.default.createElement(
-	          "a",
-	          { href: "https://css-tricks.com/learning-react-router/" },
-	          "CSS-Tricks article"
-	        ),
-	        " for this guide covers an explanation of ",
-	        _react2.default.createElement(
-	          "strong",
-	          null,
-	          "React Router"
-	        ),
-	        ", there are still many implementation details in this code that the article doesn't cover. For a better understanding of those details, see the ",
-	        _react2.default.createElement(
-	          "a",
-	          { href: "https://github.com/bradwestfall/CSS-Tricks-React-Series" },
-	          "Github documentation"
-	        ),
-	        " for this guide."
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        "As far as the [Search Title] and [Total Results] that you'll see on the results page, those are static for now. We will make them dynamic in the third guide."
-	      )
-	    );
+	    return _react2.default.createElement("div", { className: "content_layout" });
 	  }
 	});
 	
@@ -25217,6 +25197,51 @@
 
 /***/ }),
 /* 221 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Home = _react2.default.createClass({
+	  displayName: 'Home',
+	
+	  initialChecker: function initialChecker() {
+	    var parentStates = this.props.getStates();
+	    if (parentStates.anime_state === 'inactive' || parentStates.onACtive === 'hide') {
+	      setTimeout(function () {
+	        this.props.showContents();
+	      }.bind(this), 2500);
+	    }
+	    console.log(this.props.getStates());
+	  },
+	  render: function render() {
+	    this.initialChecker();
+	    return _react2.default.createElement(
+	      'div',
+	      { className: 'content_layout' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'left_contents' },
+	        _react2.default.createElement('div', { className: 'personal_image' })
+	      ),
+	      _react2.default.createElement('div', { className: 'right_contents' })
+	    );
+	  }
+	});
+	
+	exports.default = Home;
+
+/***/ }),
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25301,7 +25326,7 @@
 	exports.default = UserList;
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25332,7 +25357,7 @@
 	exports.default = UserProfile;
 
 /***/ }),
-/* 223 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
