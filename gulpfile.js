@@ -28,13 +28,20 @@ gulp.task('watch:build', function() {
 });
 
 gulp.task('less', function(){
+  let isSuccess = true;
   return gulp.src('./less/app.less')
     .pipe(less())
     .on('error', function handleError(error){
+      isSuccess = false;
       console.log(error.toString());
       this.emit('end');
     })
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./public/css'))
+    .on('end', ()=>{
+      if(isSuccess){
+        console.log('---------------LESS Compilation Succeed----------------');
+      }
+    });
     
 });
 

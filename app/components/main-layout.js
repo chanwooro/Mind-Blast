@@ -39,7 +39,8 @@ const MainLayout = React.createClass({
     return (
       <div className="app">
         <canvas id='canvas'></canvas>
-        <div className="circle"></div>
+        <div className="circle blur"></div>
+        <div className="square blur"></div>
         <div className="layout_separator">
           <header className=''></header>
           

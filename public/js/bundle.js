@@ -24988,7 +24988,8 @@
 	      'div',
 	      { className: 'app' },
 	      _react2.default.createElement('canvas', { id: 'canvas' }),
-	      _react2.default.createElement('div', { className: 'circle' }),
+	      _react2.default.createElement('div', { className: 'circle blur' }),
+	      _react2.default.createElement('div', { className: 'square blur' }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'layout_separator' },
