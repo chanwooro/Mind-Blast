@@ -72,8 +72,8 @@ const MainLayout = React.createClass({
                 </div>
                 <ul className="main_menu">
                   <li><Link to="/about" activeClassName="active" onClick={this.showContents}>About</Link></li>
-                  <li><Link to="/users" activeClassName="active" onClick={this.showContents}>Experience</Link></li>
-                  <li><Link to="/widgets" activeClassName="active" onClick={this.showContents}>Skills</Link></li>
+                  <li><Link to="/experiences" activeClassName="active" onClick={this.showContents}>Experience</Link></li>
+                  <li><Link to="/skills" activeClassName="active" onClick={this.showContents}>Skills</Link></li>
                 </ul>
               
             </div>

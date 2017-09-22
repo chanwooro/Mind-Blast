@@ -50,7 +50,7 @@ app.use(function(err, req, res, next) {
  * Start Server
  */
 
-const port = 8080;
+const port = 3000;
 app.listen(port);
 
 console.log('Visit: localhost:' + port);

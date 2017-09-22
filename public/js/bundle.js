@@ -19797,15 +19797,21 @@
 	
 	var _userList2 = _interopRequireDefault(_userList);
 	
-	var _userProfile = __webpack_require__(223);
+	var _experience = __webpack_require__(223);
 	
-	var _userProfile2 = _interopRequireDefault(_userProfile);
+	var _experience2 = _interopRequireDefault(_experience);
 	
-	var _widgetList = __webpack_require__(224);
+	var _skill = __webpack_require__(224);
 	
-	var _widgetList2 = _interopRequireDefault(_widgetList);
+	var _skill2 = _interopRequireDefault(_skill);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	/*<Route path="skills">
+	        <Route component={SearchLayout}>
+	          <IndexRoute component={WidgetList} />
+	        </Route>
+	      </Route> */
 	
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Router,
@@ -19821,22 +19827,13 @@
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { path: 'users' },
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { component: _searchLayout2.default },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _userList2.default })
-	      ),
-	      _react2.default.createElement(_reactRouter.Route, { path: ':userId', component: _userProfile2.default })
+	      { path: 'experiences' },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _experience2.default })
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
-	      { path: 'widgets' },
-	      _react2.default.createElement(
-	        _reactRouter.Route,
-	        { component: _searchLayout2.default },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _widgetList2.default })
-	      )
+	      { path: 'skills' },
+	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _skill2.default })
 	    )
 	  )
 	);
@@ -25060,7 +25057,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/users', activeClassName: 'active', onClick: this.showContents },
+	                  { to: '/experiences', activeClassName: 'active', onClick: this.showContents },
 	                  'Experience'
 	                )
 	              ),
@@ -25069,7 +25066,7 @@
 	                null,
 	                _react2.default.createElement(
 	                  _reactRouter.Link,
-	                  { to: '/widgets', activeClassName: 'active', onClick: this.showContents },
+	                  { to: '/skills', activeClassName: 'active', onClick: this.showContents },
 	                  'Skills'
 	                )
 	              )
@@ -25345,7 +25342,16 @@
 	var UserProfile = _react2.default.createClass({
 	  displayName: 'UserProfile',
 	
+	  initialChecker: function initialChecker() {
+	    var parentStates = this.props.getStates();
+	    if (parentStates.anime_state === 'inactive' || parentStates.onACtive === 'hide') {
+	      setTimeout(function () {
+	        this.props.showContents();
+	      }.bind(this), 2500);
+	    }
+	  },
 	  render: function render() {
+	    this.initialChecker();
 	    return _react2.default.createElement(
 	      'h1',
 	      null,
@@ -25361,7 +25367,7 @@
 /* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -25374,26 +25380,36 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var WidgetList = _react2.default.createClass({
-	  displayName: "WidgetList",
+	  displayName: 'WidgetList',
+	
+	  initialChecker: function initialChecker() {
+	    var parentStates = this.props.getStates();
+	    if (parentStates.anime_state === 'inactive' || parentStates.onACtive === 'hide') {
+	      setTimeout(function () {
+	        this.props.showContents();
+	      }.bind(this), 2500);
+	    }
+	  },
 	
 	  render: function render() {
+	    this.initialChecker();
 	    return _react2.default.createElement(
-	      "ul",
-	      { className: "widget-list" },
+	      'ul',
+	      { className: 'widget-list' },
 	      _react2.default.createElement(
-	        "li",
+	        'li',
 	        null,
-	        "Widget 1"
+	        'Widget 1'
 	      ),
 	      _react2.default.createElement(
-	        "li",
+	        'li',
 	        null,
-	        "Widget 2"
+	        'Widget 2'
 	      ),
 	      _react2.default.createElement(
-	        "li",
+	        'li',
 	        null,
-	        "Widget 3"
+	        'Widget 3'
 	      )
 	    );
 	  }

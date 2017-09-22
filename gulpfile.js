@@ -37,7 +37,7 @@ gulp.task('less', function(){
       this.emit('end');
     })
     .pipe(gulp.dest('./public/css'))
-    .on('end', ()=>{
+    .on('end', (success)=>{
       if(isSuccess){
         console.log('---------------LESS Compilation Succeed----------------');
       }

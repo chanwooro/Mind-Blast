@@ -9,8 +9,13 @@ import SearchLayout from './components/search-layout';
 import Home from './components/home';
 import about from './components/about';
 import UserList from './components/user-list';
-import UserProfile from './components/user-profile';
-import WidgetList from './components/widget-list';
+import experience from './components/experience';
+import skill from './components/skill';
+/*<Route path="skills">
+        <Route component={SearchLayout}>
+          <IndexRoute component={WidgetList} />
+        </Route>
+      </Route> */
 
 export default (
   <Router history={hashHistory}>
@@ -21,18 +26,14 @@ export default (
           <IndexRoute component={about} />
       </Route>
 
-      <Route path="users">
-        <Route component={SearchLayout}>
-          <IndexRoute component={UserList} />
-        </Route>
-        <Route path=":userId" component={UserProfile} />
+      <Route path="experiences">
+          <IndexRoute component={experience} />
       </Route>
 
-      <Route path="widgets">
-        <Route component={SearchLayout}>
-          <IndexRoute component={WidgetList} />
-        </Route>
+      <Route path="skills">
+          <IndexRoute component={skill} />
       </Route>
+      
 
     </Route>
   </Router>
