@@ -754,3 +754,52 @@ body {
   background-repeat: no-repeat;
   background-size: 80px 60px;
 }
+.experience_history .history_section {
+  position: absolute;
+  padding-top: 10px;
+  margin: 0;
+  left: 0;
+  right: 0;
+}
+@-webkit-keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+.experience_history {
+  text-align: center;
+  opacity: 0;
+}
+.experience_history.show {
+  animation: fadeIn 1s forwards;
+  -webkit-animation: fadeIn 1s forwards;
+  -webkit-animation-delay: 1s;
+  /* Safari 4.0 - 8.0 */
+  animation-delay: 1s;
+}
+.history_object {
+  background: #fff;
+  border: 2px solid #000;
+  transform: rotateZ(45deg);
+  height: 20px;
+  width: 20px;
+  margin: 0 auto;
+  margin-top: 5px;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+  cursor: pointer;
+}
+.history_header {
+  display: none;
+}
+.history_object:hover {
+  -webkit-transition: 0.3s ease-out, background-color 1s ease 0.3s;
+  transition: 0.3s ease-out, background-color 1s ease 0.3s;
+  transform: rotateZ(0deg);
+  background-color: #000;
+}
