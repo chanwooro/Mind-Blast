@@ -25353,9 +25353,10 @@
 	    } else {
 	      current_history = false;
 	    }
+	    //Reason why have two same container is because Anime plugin re-renders whenever state changes. We need static state
 	    return {
 	      onLoad: false,
-	      anime_state: parentStates.anime_state,
+	      anime_state: current_history,
 	      show_history: current_history
 	    };
 	  },
@@ -25385,7 +25386,7 @@
 	      { className: this.showSectors() },
 	      _react2.default.createElement(
 	        _reactAnime2.default,
-	        { delay: 2000, translateY: '3em', translateX: '-12.5em' },
+	        { delay: !this.state.anime_state ? 3000 : 2000, translateY: '3em', translateX: '-16.5em', easing: 'easeOutElastic' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'history_section' },
@@ -25399,7 +25400,7 @@
 	      ),
 	      _react2.default.createElement(
 	        _reactAnime2.default,
-	        { delay: 2000, translateX: '-5em' },
+	        { delay: !this.state.anime_state ? 3000 : 2000, translateX: '-7em', easing: 'easeOutElastic' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'history_section' },
@@ -25413,7 +25414,7 @@
 	      ),
 	      _react2.default.createElement(
 	        _reactAnime2.default,
-	        { delay: 2000, translateY: '3em', translateX: '2.5em' },
+	        { delay: !this.state.anime_state ? 3000 : 2000, translateY: '3em', translateX: '2.5em', easing: 'easeOutElastic' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'history_section' },
@@ -25427,7 +25428,7 @@
 	      ),
 	      _react2.default.createElement(
 	        _reactAnime2.default,
-	        { delay: 2000, translateX: '10em' },
+	        { delay: !this.state.anime_state ? 3000 : 2000, translateX: '12em', easing: 'easeOutElastic' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'history_section' },

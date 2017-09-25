@@ -10,9 +10,10 @@ const UserProfile = React.createClass({
     }else{
       current_history = false;
     }
+    //Reason why have two same container is because Anime plugin re-renders whenever state changes. We need static state
     return {
       onLoad: false,
-      anime_state: parentStates.anime_state,
+      anime_state: current_history,
       show_history: current_history
     }; 
   },
@@ -38,25 +39,25 @@ const UserProfile = React.createClass({
     }
     return (
       <div className={this.showSectors()}>
-        <Anime delay={2000} translateY={'3em'} translateX={'-12.5em'}>
+        <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'-16.5em'} easing="easeOutElastic">
           <div className="history_section">
             <div className="history_header">2015</div>
             <div className="history_object"></div>
           </div>
         </Anime>
-        <Anime delay={2000} translateX={'-5em'}>
+        <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'-7em'} easing="easeOutElastic">
           <div className="history_section">
             <div className="history_header">2016</div>
             <div className="history_object"></div>
           </div>
         </Anime>
-        <Anime delay={2000} translateY={'3em'} translateX={'2.5em'}>
+        <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'2.5em'} easing="easeOutElastic">
           <div className="history_section">
             <div className="history_header">2017</div>
             <div className="history_object"></div>
           </div>
         </Anime>
-        <Anime delay={2000} translateX={'10em'}>
+        <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'12em'} easing="easeOutElastic">
           <div className="history_section">
             <div className="history_header">NOW</div>
             <div className="history_object"></div>
