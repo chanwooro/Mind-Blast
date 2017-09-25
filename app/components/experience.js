@@ -1,4 +1,5 @@
 import React from 'react';
+import Anime from 'react-anime';
 
 const UserProfile = React.createClass({
   getInitialState () {
@@ -37,22 +38,30 @@ const UserProfile = React.createClass({
     }
     return (
       <div className={this.showSectors()}>
-        <div className="history_section">
-          <div className="history_header">2015</div>
-          <div className="history_object"></div>
-        </div>
-        <div className="history_section">
-          <div className="history_header">2016</div>
-          <div className="history_object"></div>
-        </div>
-        <div className="history_section">
-          <div className="history_header">2017</div>
-          <div className="history_object"></div>
-        </div>
-        <div className="history_section">
-          <div className="history_header">NOW</div>
-          <div className="history_object"></div>
-        </div>
+        <Anime delay={2000} translateY={'3em'} translateX={'-12.5em'}>
+          <div className="history_section">
+            <div className="history_header">2015</div>
+            <div className="history_object"></div>
+          </div>
+        </Anime>
+        <Anime delay={2000} translateX={'-5em'}>
+          <div className="history_section">
+            <div className="history_header">2016</div>
+            <div className="history_object"></div>
+          </div>
+        </Anime>
+        <Anime delay={2000} translateY={'3em'} translateX={'2.5em'}>
+          <div className="history_section">
+            <div className="history_header">2017</div>
+            <div className="history_object"></div>
+          </div>
+        </Anime>
+        <Anime delay={2000} translateX={'10em'}>
+          <div className="history_section">
+            <div className="history_header">NOW</div>
+            <div className="history_object"></div>
+          </div>
+        </Anime>
       </div> 
     );
   }

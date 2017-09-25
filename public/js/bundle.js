@@ -25337,6 +25337,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactAnime = __webpack_require__(218);
+	
+	var _reactAnime2 = _interopRequireDefault(_reactAnime);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var UserProfile = _react2.default.createClass({
@@ -25380,44 +25384,60 @@
 	      'div',
 	      { className: this.showSectors() },
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'history_section' },
+	        _reactAnime2.default,
+	        { delay: 2000, translateY: '3em', translateX: '-12.5em' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'history_header' },
-	          '2015'
-	        ),
-	        _react2.default.createElement('div', { className: 'history_object' })
+	          { className: 'history_section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_header' },
+	            '2015'
+	          ),
+	          _react2.default.createElement('div', { className: 'history_object' })
+	        )
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'history_section' },
+	        _reactAnime2.default,
+	        { delay: 2000, translateX: '-5em' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'history_header' },
-	          '2016'
-	        ),
-	        _react2.default.createElement('div', { className: 'history_object' })
+	          { className: 'history_section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_header' },
+	            '2016'
+	          ),
+	          _react2.default.createElement('div', { className: 'history_object' })
+	        )
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'history_section' },
+	        _reactAnime2.default,
+	        { delay: 2000, translateY: '3em', translateX: '2.5em' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'history_header' },
-	          '2017'
-	        ),
-	        _react2.default.createElement('div', { className: 'history_object' })
+	          { className: 'history_section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_header' },
+	            '2017'
+	          ),
+	          _react2.default.createElement('div', { className: 'history_object' })
+	        )
 	      ),
 	      _react2.default.createElement(
-	        'div',
-	        { className: 'history_section' },
+	        _reactAnime2.default,
+	        { delay: 2000, translateX: '10em' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'history_header' },
-	          'NOW'
-	        ),
-	        _react2.default.createElement('div', { className: 'history_object' })
+	          { className: 'history_section' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_header' },
+	            'NOW'
+	          ),
+	          _react2.default.createElement('div', { className: 'history_object' })
+	        )
 	      )
 	    );
 	  }
