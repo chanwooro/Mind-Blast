@@ -25391,10 +25391,18 @@
 	          { className: 'history_section' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'history_header' },
+	            { className: 'history_header top' },
 	            '2015'
 	          ),
-	          _react2.default.createElement('div', { className: 'history_object' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_object' },
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Aimhigh'
+	            )
+	          )
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25405,10 +25413,18 @@
 	          { className: 'history_section' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'history_header' },
+	            { className: 'history_header bottom' },
 	            '2016'
 	          ),
-	          _react2.default.createElement('div', { className: 'history_object' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_object' },
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              '3TwoOne'
+	            )
+	          )
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25419,10 +25435,18 @@
 	          { className: 'history_section' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'history_header' },
+	            { className: 'history_header top' },
 	            '2017'
 	          ),
-	          _react2.default.createElement('div', { className: 'history_object' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_object' },
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Elminara'
+	            )
+	          )
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -25433,10 +25457,18 @@
 	          { className: 'history_section' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'history_header' },
+	            { className: 'history_header now' },
 	            'NOW'
 	          ),
-	          _react2.default.createElement('div', { className: 'history_object' })
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'history_object' },
+	            _react2.default.createElement(
+	              'span',
+	              null,
+	              'Codeclouds'
+	            )
+	          )
 	        )
 	      )
 	    );

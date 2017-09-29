@@ -40,26 +40,26 @@ const UserProfile = React.createClass({
       <div className={this.showSectors()}>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'-16.5em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header">2015</div>
-            <div className="history_object"></div>
+            <div className="history_header top">2015</div>
+            <div className="history_object"><span>Aimhigh</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'-7em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header">2016</div>
-            <div className="history_object"></div>
+            <div className="history_header bottom">2016</div>
+            <div className="history_object"><span>3TwoOne</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'2.5em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header">2017</div>
-            <div className="history_object"></div>
+            <div className="history_header top">2017</div>
+            <div className="history_object"><span>Elminara</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'12em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header">NOW</div>
-            <div className="history_object"></div>
+            <div className="history_header now">NOW</div>
+            <div className="history_object"><span>Codeclouds</span></div>
           </div>
         </Anime>
       </div> 
