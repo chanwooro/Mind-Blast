@@ -24,18 +24,19 @@ function init() {
 }
 
 function createTrail() {
+
   dot = {
-    x: 500, 
-    y: 500,
+    x: 10, 
+    y: 10,
     speed: 3,
     direction: Math.PI * 5 * Math.random()
   }
 }
 
 function updatePosition() {
+  
   var dx = dot.x + dot.speed * Math.cos(dot.direction);
   var dy = dot.y + dot.speed * Math.sin(dot.direction);
-  
   if (dx < 0 || dx > CANVAS_WIDTH || dy < 0 || dy > CANVAS_HEIGHT) {
     dot.direction = Math.PI * 2 * Math.random();
     updatePosition();

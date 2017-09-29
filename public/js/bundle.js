@@ -25353,7 +25353,7 @@
 	    } else {
 	      current_history = false;
 	    }
-	    //Reason why have two same container is because Anime plugin re-renders whenever state changes. We need static state
+	    //Reason why have two same container is because Anime plugin re-renders whenever state changes. Thus we need static state
 	    return {
 	      onLoad: false,
 	      anime_state: current_history,
@@ -25362,7 +25362,6 @@
 	  },
 	
 	  initialChecker: function initialChecker() {
-	    var parentStates = this.props.getStates();
 	    this.state.onLoad = true;
 	    if (!this.current_history) {
 	      setTimeout(function () {
