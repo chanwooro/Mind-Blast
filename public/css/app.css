@@ -759,8 +759,7 @@ body {
   position: absolute;
   padding-top: 10px;
   margin: 0;
-  left: 0;
-  right: 0;
+  width: 24px;
 }
 @-webkit-keyframes fadeIn {
   100% {
@@ -775,6 +774,8 @@ body {
 .experience_history {
   text-align: center;
   opacity: 0;
+  width: 24px;
+  margin: 0 auto;
 }
 .experience_history.show {
   animation: fadeIn 1s forwards;
@@ -794,13 +795,16 @@ body {
   -webkit-transition: all 1s;
   transition: all 1s;
   cursor: pointer;
+  -webkit-transition: width 1s ease, background-color 1s ease 0.3s, transform 0.5s ease 0.5s;
+  transition: width 1s ease, background-color 1s ease 0.3s, transform 0.5s ease 0.5s;
 }
 .history_header {
   display: none;
 }
 .history_object:hover {
-  -webkit-transition: 0.3s ease-out, background-color 1s ease 0.3s;
-  transition: 0.3s ease-out, background-color 1s ease 0.3s;
+  -webkit-transition: 0.3s ease-out, background-color 1s ease 0.3s, width 1s ease 0.6s;
+  transition: 0.3s ease-out, background-color 1s ease 0.3s, width 1s ease 0.6s;
   transform: rotateZ(0deg);
   background-color: #000;
+  width: 100px;
 }
