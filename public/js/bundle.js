@@ -25370,10 +25370,13 @@
 	          show_history: true
 	        });
 	      }.bind(this), 2500);
-	    }
+	    } else {}
 	  },
 	  showSectors: function showSectors() {
 	    return 'experience_history ' + (this.state.show_history ? 'experience_history show' : 'experience_history');
+	  },
+	  showHeadings: function showHeadings() {
+	    return this.state.show_history ? 'show_history_heading' : '';
 	  },
 	  render: function render() {
 	    if (!this.state.onLoad) {
@@ -25392,7 +25395,11 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'history_header top' },
-	            '2015'
+	            _react2.default.createElement(
+	              'span',
+	              { className: this.showHeadings() },
+	              '2015'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25414,7 +25421,11 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'history_header bottom' },
-	            '2016'
+	            _react2.default.createElement(
+	              'span',
+	              { className: this.showHeadings() },
+	              '2016'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25436,7 +25447,11 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'history_header top' },
-	            '2017'
+	            _react2.default.createElement(
+	              'span',
+	              { className: this.showHeadings() },
+	              '2017'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -25458,11 +25473,15 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'history_header now' },
-	            'NOW'
+	            _react2.default.createElement(
+	              'span',
+	              { className: this.showHeadings() },
+	              'NOW'
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'history_object' },
+	            { className: 'history_object current' },
 	            _react2.default.createElement(
 	              'span',
 	              null,

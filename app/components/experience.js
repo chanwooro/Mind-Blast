@@ -26,10 +26,15 @@ const UserProfile = React.createClass({
           show_history: true
         });
       }.bind(this), 2500);
+    }else{
+
     }
   },
   showSectors : function(){
     return 'experience_history ' + (this.state.show_history ? 'experience_history show' : 'experience_history');
+  },
+  showHeadings: function(){
+    return this.state.show_history ? 'show_history_heading' : '';
   },
   render: function() {
     if(!this.state.onLoad){
@@ -40,26 +45,26 @@ const UserProfile = React.createClass({
       <div className={this.showSectors()}>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'-16.5em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header top">2015</div>
+            <div className="history_header top"><span className={this.showHeadings()}>2015</span></div>
             <div className="history_object"><span>Aimhigh</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'-7em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header bottom">2016</div>
+            <div className="history_header bottom"><span className={this.showHeadings()}>2016</span></div>
             <div className="history_object"><span>3TwoOne</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateY={'3em'} translateX={'2.5em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header top">2017</div>
+            <div className="history_header top"><span className={this.showHeadings()}>2017</span></div>
             <div className="history_object"><span>Elminara</span></div>
           </div>
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'12em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header now">NOW</div>
-            <div className="history_object"><span>Codeclouds</span></div>
+            <div className="history_header now"><span className={this.showHeadings()}>NOW</span></div>
+            <div className="history_object current"><span>Codeclouds</span></div>
           </div>
         </Anime>
       </div> 
