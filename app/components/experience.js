@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Anime from 'react-anime';
 
 const UserProfile = React.createClass({
@@ -63,7 +64,7 @@ const UserProfile = React.createClass({
         </Anime>
         <Anime delay={!this.state.anime_state ? 3000 : 2000} translateX={'12em'} easing="easeOutElastic">
           <div className="history_section">
-            <div className="history_header now"><span className={this.showHeadings()}>NOW</span></div>
+            <div className="history_header now"><Link to="experiences/now"><span className={this.showHeadings()}>NOW</span></Link></div>
             <div className="history_object current"><span>Codeclouds</span></div>
           </div>
         </Anime>

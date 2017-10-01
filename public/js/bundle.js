@@ -19828,7 +19828,11 @@
 	    _react2.default.createElement(
 	      _reactRouter.Route,
 	      { path: 'experiences' },
-	      _react2.default.createElement(_reactRouter.IndexRoute, { component: _experience2.default })
+	      _react2.default.createElement(
+	        _reactRouter.Route,
+	        { component: _experience2.default },
+	        _react2.default.createElement(_reactRouter.Route, { path: ':years', component: _experience2.default })
+	      )
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
@@ -25337,6 +25341,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactRouter = __webpack_require__(160);
+	
 	var _reactAnime = __webpack_require__(218);
 	
 	var _reactAnime2 = _interopRequireDefault(_reactAnime);
@@ -25474,9 +25480,13 @@
 	            'div',
 	            { className: 'history_header now' },
 	            _react2.default.createElement(
-	              'span',
-	              { className: this.showHeadings() },
-	              'NOW'
+	              _reactRouter.Link,
+	              { to: 'experiences/now' },
+	              _react2.default.createElement(
+	                'span',
+	                { className: this.showHeadings() },
+	                'NOW'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(

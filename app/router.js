@@ -27,7 +27,10 @@ export default (
       </Route>
 
       <Route path="experiences">
-          <IndexRoute component={experience} />
+        <Route component={experience}>
+          <Route path=":years" component={experience} />
+        </Route>
+        
       </Route>
 
       <Route path="skills">
