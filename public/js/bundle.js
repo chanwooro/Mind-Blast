@@ -19831,8 +19831,9 @@
 	      _react2.default.createElement(
 	        _reactRouter.Route,
 	        { component: _experience2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: ':years', component: _experience2.default })
-	      )
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _experience2.default })
+	      ),
+	      _react2.default.createElement(_reactRouter.Route, { path: ':userId', component: _experience2.default })
 	    ),
 	    _react2.default.createElement(
 	      _reactRouter.Route,
