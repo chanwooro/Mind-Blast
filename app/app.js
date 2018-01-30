@@ -1,8 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import { render } from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import apiHandler from './middleware'
+import red from './reducer'
+import { listQuestions } from './action'
+import App from './components/App'
 
-// Notice that we've organized all of our routes into a separate file.
-import Router from './router';
-localStorage.clear();
-// Now we can attach the router to the 'root' element like this:
-ReactDOM.render(Router, document.getElementById('root'));   
+const middle = applyMiddleware(apiHandler);
+const store = createStore(red, middle);
+
+store.dispatch(listQuestions());
+render(
+        <Provider store={store}>
+            <App />
+        </Provider>, 
+        document.getElementById('root')
+      ); 
+
+

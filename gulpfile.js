@@ -18,13 +18,13 @@ gulp.task('build', ['clean:build'], function() {
   return gulp.src('./app/app.js')
     .pipe(webpack(webpackConfig))
     .on('error', function handleError() {
-      this.emit('end'); // Recover from errors
+      this.emit('end'); 
     })
     .pipe(gulp.dest('./'));
 });
 
 gulp.task('watch:build', function() {
-  return gulp.watch('./app/**/*', ['build']);
+  return gulp.watch('./app/**/*.js', ['build']);
 });
 
 gulp.task('less', function(){
@@ -39,7 +39,7 @@ gulp.task('less', function(){
     .pipe(gulp.dest('./public/css'))
     .on('end', (success)=>{
       if(isSuccess){
-        console.log('---------------LESS Compilation Succeed----------------');
+        console.log('---------------LESS Compilation Complete----------------');
       }
     });
     
