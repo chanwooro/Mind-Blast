@@ -192,9 +192,6 @@ ul {
 .header {
   background: #3f668c;
 }
-.listQuestions {
-  margin-top: 15px;
-}
 .listQuestions ul li {
   list-style: none;
   padding: 7px 20px 7px 60px;
@@ -225,7 +222,7 @@ ul {
   margin-right: 5px;
   padding: 5px;
   border-radius: 50%;
-  border: 1px solid #4c79a9;
+  border: 1px solid #46739c;
   transition: 0.25s;
 }
 .rightMenu .right-main-menu:hover {
@@ -236,7 +233,10 @@ ul {
 }
 .rightMenu {
   text-align: right;
-  margin-top: 15px;
+  height: 45px;
+  background: #46739c;
+  margin-bottom: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .dropdown-plus {
   margin-top: 26px;
@@ -270,6 +270,8 @@ ul {
 }
 .main-menu-wrapper {
   height: 10px;
+  margin: 0;
+  padding-top: 15px;
 }
 .dropdown-plus.show {
   height: auto;
