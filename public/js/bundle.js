@@ -26021,6 +26021,22 @@
 	        id: id
 	    };
 	};
+	
+	var menuClick = exports.menuClick = function menuClick(iconType) {
+	    return {
+	        type: "MENU_CLICKED",
+	        iconType: iconType,
+	        behavior: behavior
+	    };
+	};
+	
+	var actionClick = exports.actionClick = function actionClick(bahavior) {
+	    return {
+	        type: "MENU_CLICKED",
+	        iconType: iconType,
+	        behavior: behavior
+	    };
+	};
 
 /***/ }),
 /* 254 */
@@ -26064,6 +26080,8 @@
 	  value: true
 	});
 	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
@@ -26078,52 +26096,140 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	console.log('test');
-	var SidebarH = function SidebarH(_ref) {
-	  var listData = _ref.listData;
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	  console.log(listData);
-	  var list = listData.questions;
-	  if (!list) {
-	    return _react2.default.createElement('div', null);
-	  } else {
-	    console.log(list);
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'leftbar' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'header' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'headerName' },
-	          'Mind Blast'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'listQuestions' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'listHeader selected' },
-	          _react2.default.createElement('i', { className: 'fa fa-tasks fa-2x', 'aria-hidden': 'true' }),
-	          _react2.default.createElement(
-	            'span',
-	            { className: 'Q_title' },
-	            'Questions'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'ul',
-	          null,
-	          list.map(function (data) {
-	            return _react2.default.createElement(_listData2.default, { key: data.id, id: data.id, contents: data.contents });
-	          })
-	        )
-	      )
-	    );
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Sidebar = function (_Component) {
+	  _inherits(Sidebar, _Component);
+	
+	  function Sidebar(props) {
+	    _classCallCheck(this, Sidebar);
+	
+	    var _this = _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
+	
+	    _this.state = {
+	      clickAdd: false
+	    };
+	    return _this;
 	  }
-	};
+	
+	  _createClass(Sidebar, [{
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+	
+	      if (!this.props.listData.questions) {
+	        return _react2.default.createElement('div', null);
+	      } else {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'leftbar' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'header' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'headerName' },
+	              'Mind Blast'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'rightMenu' },
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'main-menu-wrapper' },
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: '#', className: 'right-main-menu', onClick: function onClick() {
+	                      return _this2.setState({ clickMinus: !_this2.state.clickMinus, clickAdd: false });
+	                    } },
+	                  _react2.default.createElement('i', { className: 'fa fa-minus fa-lg', 'aria-hidden': 'true' })
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: this.state.clickMinus ? "dropdown-plus show" : "dropdown-plus" },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '#' },
+	                    'Section'
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '#' },
+	                    'Question'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'a',
+	                  { href: '#', className: 'right-main-menu', onClick: function onClick() {
+	                      return _this2.setState({ clickAdd: !_this2.state.clickAdd, clickMinus: false });
+	                    } },
+	                  _react2.default.createElement('i', { className: 'fa fa-plus fa-lg', 'aria-hidden': 'true' })
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: this.state.clickAdd ? "dropdown-plus show" : "dropdown-plus" },
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '#' },
+	                    'Section'
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '#' },
+	                    'Question'
+	                  )
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'listQuestions' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'listHeader selected' },
+	              _react2.default.createElement('i', { className: 'fa fa-tasks fa-lg', 'aria-hidden': 'true' }),
+	              _react2.default.createElement(
+	                'span',
+	                { className: 'Q_title' },
+	                'Questions'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              this.props.listData.questions.map(function (data) {
+	                return _react2.default.createElement(_listData2.default, { key: data.id, id: data.id, contents: data.contents });
+	              })
+	            )
+	          )
+	        );
+	      }
+	    }
+	  }]);
+	
+	  return Sidebar;
+	}(_react.Component);
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
@@ -26131,8 +26237,7 @@
 	  };
 	};
 	
-	var Sidebar = (0, _reactRedux.connect)(mapStateToProps)(SidebarH);
-	exports.default = Sidebar;
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Sidebar);
 
 /***/ }),
 /* 256 */

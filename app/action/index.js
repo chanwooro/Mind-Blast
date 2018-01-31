@@ -42,3 +42,14 @@ export const displayQuestionById = (id) => ({
     id
 });
 
+export const menuClick = (iconType) => ({
+    type: "MENU_CLICKED",
+    iconType,
+    behavior
+})
+
+export const actionClick = (bahavior) => ({
+    type: "MENU_CLICKED",
+    iconType,
+    behavior
+})
