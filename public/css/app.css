@@ -209,7 +209,20 @@ ul {
 }
 .listHeader {
   padding: 5px 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
 }
+.listHeader:hover {
+  background: #3f668c;
+  transition: 0.2s;
+}
+/*
+this is when folder is clickd
+.List ul{
+    height: 0;
+    overflow: hidden;
+}*/
 .selected {
   background: #3f668c !important;
 }
@@ -222,8 +235,11 @@ ul {
   margin-right: 5px;
   padding: 5px;
   border-radius: 50%;
-  border: 1px solid #46739c;
+  border: 1px solid #4c79a9;
   transition: 0.25s;
+}
+.listQuestions ul {
+  background: #46739c;
 }
 .rightMenu .right-main-menu:hover {
   color: #4c79a9;
@@ -232,10 +248,10 @@ ul {
   transition: 0.25s;
 }
 .rightMenu {
-  text-align: right;
+  /*text-align:right;*/
   height: 45px;
-  background: #46739c;
-  margin-bottom: 10px;
+  background: #4c79a9;
+  margin-bottom: 20px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 .dropdown-plus {
@@ -284,4 +300,49 @@ ul {
   100% {
     height: 50px;
   }
+}
+.cf_wrapper {
+  padding: 5px 0 5px 30px;
+  margin-bottom: 15px;
+}
+.cf_input {
+  color: #fff;
+  background: transparent;
+  border: 0;
+  margin-left: 10px;
+  font-size: 16px;
+  border: 2px solid #4aa2ec;
+  border-radius: 5px;
+  background: #528bbb;
+  width: 230px;
+  padding: 5px;
+}
+.cf_buttons {
+  margin-right: 10px;
+  float: right;
+  margin-top: 6px;
+}
+.cf_create {
+  margin-right: 4px;
+  color: #00da00;
+  padding: 4px 2px !important;
+}
+.cf_cancel {
+  color: #d60202;
+}
+.cf_buttons span {
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.cf_create:hover {
+  background: #00da00;
+  color: #fff;
+  transition: 0.2s;
+}
+.cf_cancel:hover {
+  background: #d60202;
+  color: #fff;
+  transition: 0.2s;
 }

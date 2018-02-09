@@ -24315,6 +24315,19 @@
 	    return function (next) {
 	        return function (action) {
 	            console.log('middleware fired');
+	            if (action.type === 'ADD_NEW_FOLDER') {
+	                _axios2.default.post('/api/create/folder/', {
+	                    name: action.nane,
+	                    id: action.id
+	                }).then(function (res) {
+	                    var result = next({
+	                        type: action.type,
+	                        data: res.data
+	                    });
+	                    console.log(res);
+	                });
+	            }
+	
 	            _axios2.default.get('/api/contents/').then(function (res) {
 	                console.log(res.data);
 	                console.log('middleware successful');
@@ -25958,11 +25971,19 @@
 /* 253 */
 /***/ (function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	var addNewFolder = exports.addNewFolder = function addNewFolder(name, id) {
+	    return {
+	        type: "ADD_NEW_Folder",
+	        name: name,
+	        id: id
+	    };
+	};
+	
 	var addNewQuestion = exports.addNewQuestion = function addNewQuestion(jsonObject) {
 	    return {
 	        type: "ADD_NEW_QUESTION",
@@ -26090,9 +26111,13 @@
 	
 	var _reactRedux = __webpack_require__(205);
 	
-	var _listData = __webpack_require__(256);
+	var _redux = __webpack_require__(184);
 	
-	var _listData2 = _interopRequireDefault(_listData);
+	var _listQuestion = __webpack_require__(256);
+	
+	var _listQuestion2 = _interopRequireDefault(_listQuestion);
+	
+	var _action = __webpack_require__(253);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -26111,19 +26136,30 @@
 	    var _this = _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).call(this, props));
 	
 	    _this.state = {
-	      clickAdd: false
+	      clickMinus: false,
+	      clickAdd: false,
+	      mainMenu: '',
+	      selectedFoler: '',
+	      createFolder: false
 	    };
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(Sidebar, [{
+	    key: 'handleSubmit',
+	    value: function handleSubmit() {
+	      console.log(folderName);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 	
-	      if (!this.props.listData.questions) {
+	      if (!this.props.listQuestion.questions) {
 	        return _react2.default.createElement('div', null);
 	      } else {
+	        var _folderName = void 0;
 	        return _react2.default.createElement(
 	          'div',
 	          { className: 'leftbar' },
@@ -26162,7 +26198,7 @@
 	                  _react2.default.createElement(
 	                    'a',
 	                    { href: '#' },
-	                    'Section'
+	                    'Folder'
 	                  ),
 	                  _react2.default.createElement(
 	                    'a',
@@ -26190,8 +26226,10 @@
 	                  { className: this.state.clickAdd ? "dropdown-plus show" : "dropdown-plus" },
 	                  _react2.default.createElement(
 	                    'a',
-	                    { href: '#' },
-	                    'Section'
+	                    { href: '#', onClick: function onClick() {
+	                        return _this2.setState({ createFolder: true, clickAdd: false });
+	                      } },
+	                    'Folder'
 	                  ),
 	                  _react2.default.createElement(
 	                    'a',
@@ -26202,25 +26240,63 @@
 	              )
 	            )
 	          ),
+	          this.state.createFolder ? _react2.default.createElement(
+	            'div',
+	            { className: 'create_folder' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'cf_wrapper' },
+	              _react2.default.createElement(
+	                'form',
+	                { onSubmit: this.handleSubmit },
+	                _react2.default.createElement('i', { className: 'fa fa-folder fa-lg', 'aria-hidden': 'true' }),
+	                _react2.default.createElement('input', { type: 'text', className: 'cf_input', autoFocus: true, ref: function ref(input) {
+	                    _folderName = input;
+	                  } }),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'cf_buttons' },
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'cf_create', onClick: function onClick() {
+	                        _this2.props.createFolder(_folderName.value, 1);_this2.setState({ createFolder: false });
+	                      } },
+	                    _react2.default.createElement('i', { className: 'fa fa-check fa-lg' })
+	                  ),
+	                  _react2.default.createElement(
+	                    'span',
+	                    { className: 'cf_cancel', onClick: function onClick() {
+	                        return _this2.setState({ createFolder: false });
+	                      } },
+	                    _react2.default.createElement('i', { className: 'fa fa-close fa-lg' })
+	                  )
+	                )
+	              )
+	            )
+	          ) : '',
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'listQuestions' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'listHeader selected' },
-	              _react2.default.createElement('i', { className: 'fa fa-tasks fa-lg', 'aria-hidden': 'true' }),
+	              { className: 'List' },
 	              _react2.default.createElement(
-	                'span',
-	                { className: 'Q_title' },
-	                'Questions'
+	                'div',
+	                { className: 'listHeader selected' },
+	                _react2.default.createElement('i', { className: 'fa fa-folder fa-lg', 'aria-hidden': 'true' }),
+	                _react2.default.createElement(
+	                  'span',
+	                  { className: 'Q_title' },
+	                  'Questions'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'ul',
+	                null,
+	                this.props.listQuestion.questions.map(function (data) {
+	                  return _react2.default.createElement(_listQuestion2.default, { key: data.id, id: data.id, name: data.name });
+	                })
 	              )
-	            ),
-	            _react2.default.createElement(
-	              'ul',
-	              null,
-	              this.props.listData.questions.map(function (data) {
-	                return _react2.default.createElement(_listData2.default, { key: data.id, id: data.id, contents: data.contents });
-	              })
 	            )
 	          )
 	        );
@@ -26233,11 +26309,17 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    listData: state.sideBarStatus
+	    listQuestion: state.sideBarStatus
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Sidebar);
+	var matchDispatchToProps = function matchDispatchToProps(dispatch) {
+	  return (0, _redux.bindActionCreators)({
+	    createFolder: _action.addNewFolder
+	  }, dispatch);
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Sidebar);
 
 /***/ }),
 /* 256 */
@@ -26259,12 +26341,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var ListData = function ListData(_ref) {
+	var ListQuestion = function ListQuestion(_ref) {
 	  var id = _ref.id,
-	      contents = _ref.contents;
+	      name = _ref.name;
 	
-	  console.log(id);
-	  console.log(contents);
 	  return _react2.default.createElement(
 	    'li',
 	    { id: id },
@@ -26273,12 +26353,12 @@
 	    _react2.default.createElement(
 	      'span',
 	      { className: 'list_q_spacing' },
-	      contents
+	      name
 	    )
 	  );
 	};
 	
-	exports.default = ListData;
+	exports.default = ListQuestion;
 
 /***/ })
 /******/ ]);
