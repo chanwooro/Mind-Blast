@@ -1,4 +1,11 @@
 
+export const addNewFolder = (name, id) => ({
+    type: "ADD_NEW_Folder",
+    name,
+    id
+});
+
+
 export const addNewQuestion = (jsonObject) => ({
     type: "ADD_NEW_QUESTION",
     jsonObject
